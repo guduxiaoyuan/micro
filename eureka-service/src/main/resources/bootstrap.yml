@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: eureka-service
+server:
+  port: 8000
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+  instance:
+    prefer-ip-address: true
+  server:
+    peer-eureka-nodes-update-interval-ms: 60000
+    renewal-percent-threshold: 0.49
+#
+#spring:
+#  application:
+#    name: eureka-service
+#  profiles: docker
+#server:
+#  port: 8000
+#eureka:
+#  client:
+#    fetch-registry: false
+#    register-with-eureka: false
+#    service-url:
+#      defaultZone: http://eureka-service:8000/eureka/
+#  instance:
+#    prefer-ip-address: true
+#  server:
+#    peer-eureka-nodes-update-interval-ms: 60000
+#    renewal-percent-threshold: 0.49

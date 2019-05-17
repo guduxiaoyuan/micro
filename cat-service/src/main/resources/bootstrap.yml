@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: cat-service
+server:
+  port: 8081
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+
+---
+spring:
+  application:
+    name: cat-service
+  profiles: docker
+server:
+  port: 8081
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-service:8000/eureka/
