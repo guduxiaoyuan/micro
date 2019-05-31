@@ -2,7 +2,7 @@ spring:
   application:
     name: eureka-service
 server:
-  port: 7777
+  port: 8000
 eureka:
   client:
     fetch-registry: false
