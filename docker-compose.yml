@@ -1,26 +1,76 @@
+#version: "3"
+#services:
+#  eureka-service:
+#    image: micro-service/eureka-service
+#    ports:
+#      - 8000:8000
+#    hostname: eureka-service
+#  cat-service:
+#    image: micro-service/cat-service
+#    ports:
+#      - 8081:8081
+#    hostname: cat-service
+#    links:
+#      - eureka-service
+#    depends_on:
+#      - eureka-service
+#  dog-service:
+#    image: micro-service/dog-service
+#    ports:
+#      - 8082:8082
+#    hostname: dog-service
+#    links:
+#      - eureka-service
+#      - cat-service
+#    depends_on:
+#      - eureka-service
 version: "3"
 services:
-  eureka-service:
+  peer1:      # 默认情况下，其他服务可以使用服务名称连接到该服务。因此，对于eurekaService1的节点，它需要连接http://eurekaService2/3:951X/eureka/，因此需要配置该服务的名称是eurekaService1。
     image: micro-service/eureka-service
+    deploy:
+      replicas: 1   #定义 replicated 模式的服务的复本数量
+      update_config:
+        parallelism: 1    #每次更新复本数量
+        delay: 2s       #每次更新间隔
+      restart_policy:
+        condition: on-failure     #定义服务的重启条件
+    networks:
+      - eureka-net
     ports:
-      - 8000:8000
-    hostname: eureka-service
-  cat-service:
-    image: micro-service/cat-service
+      - "8761:8761"
+    environment:
+      - spring.profiles.active=peer1
+  peer2:    # 高可用eureka注册节点2
+    image: micro-service/eureka-service
+    deploy:
+      replicas: 1   #定义 replicated 模式的服务的复本数量
+      update_config:
+        parallelism: 1    #每次更新复本数量
+        delay: 2s       #每次更新间隔
+      restart_policy:
+        condition: on-failure     #定义服务的重启条件
+    networks:
+      - eureka-net
     ports:
-      - 8081:8081
-    hostname: cat-service
-    links:
-      - eureka-service
-    depends_on:
-      - eureka-service
-  dog-service:
-    image: micro-service/dog-service
+      - "8762:8762"
+    environment:
+      - spring.profiles.active=peer2
+  peer3:    # 高可用eureka注册节点3
+    image: micro-service/eureka-service
+    deploy:
+      replicas: 1   #定义 replicated 模式的服务的复本数量
+      update_config:
+        parallelism: 1    #每次更新复本数量
+        delay: 2s       #每次更新间隔
+      restart_policy:
+        condition: on-failure     #定义服务的重启条件
+    networks:
+      - eureka-net
     ports:
-      - 8082:8082
-    hostname: dog-service
-    links:
-      - eureka-service
-      - cat-service
-    depends_on:
-      - eureka-service
+      - "8763:8763"
+    environment:
+      - spring.profiles.active=peer3
+networks:
+  eureka-net:            #网络名称
+    driver: overlay

@@ -36,7 +36,7 @@
         </dependency>
     </dependencies>
 
-    <build>
+   <!-- <build>
         <plugins>
             <plugin>
                 <groupId>com.spotify</groupId>
@@ -65,5 +65,5 @@
             </plugin>
         </plugins>
     </build>
-
+-->
 </project>
