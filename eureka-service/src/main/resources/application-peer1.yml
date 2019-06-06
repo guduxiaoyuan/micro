@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: EUREKA-HA
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: peer1        #Eureka实例的主机名
+    prefer-ip-address: true
+#    instance-id: peer1
+  client:
+    serviceUrl:
+      defaultZone: http://peer2:8762/eureka/,http://peer3:8763/eureka/  #Eureka节点相互注册
+      register-with-eureka: true
