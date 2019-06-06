@@ -6,7 +6,7 @@ server:
 eureka:
   instance:
     hostname: peer3        #Eureka实例的主机名
-    prefer-ip-address: true
+    prefer-ip-address: false
 #    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
   client:
     serviceUrl:
