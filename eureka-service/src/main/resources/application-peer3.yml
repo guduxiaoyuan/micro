@@ -10,6 +10,6 @@ eureka:
 #    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
   client:
     serviceUrl:
-      defaultZone: http://peer1:8761/eureka/,http://peer2:8763/eureka/  #Eureka节点相互注册
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8763/eureka/  #Eureka节点相互注册的
       register-with-eureka: true
       fetch-registry: true
