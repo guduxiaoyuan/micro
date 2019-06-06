@@ -44,7 +44,7 @@ services:
   peer2:    # 高可用eureka注册节点2
     image: micro-service/eureka-service
     deploy:
-      replicas: 1   #定义 replicated 模式的服务的复本数量
+      replicas: 1   #定义 replicated 模式的服务的复本数 量
       update_config:
         parallelism: 1    #每次更新复本数量
         delay: 2s       #每次更新间隔
