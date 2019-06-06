@@ -2,11 +2,11 @@ spring:
   application:
     name: dog-service
 server:
-  port: ${{SERVER_PORT}:8083}
+  port: 8082
 eureka:
   client:
     service-url:
-      defaultZone: http://${EUREKA_SERVER_ADDRESS}:8000/eureka/
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/,http://peer3:8763/eureka/
 
 #---
 #spring:
