@@ -6,7 +6,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8000/eureka/
+      defaultZone: http://localhost:8090/eureka/
 
 ---
 spring:
@@ -18,4 +18,4 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-service:8000/eureka/
+      defaultZone: http://eureka-service:8090/eureka/
