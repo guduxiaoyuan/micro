@@ -89,7 +89,7 @@
                 <configuration>
                     <dockerHost>http://172.21.0.7:2375</dockerHost>
                   <!--  <serverId>dockerdd</serverId> -->
-                  <!--  <registryUrl>${docker.repository}</registryUrl> -->
+               <registryUrl>${docker.repository}</registryUrl> 
                     <!-- <forceTags>true</forceTags> -->
                     <!--install阶段也上传，否则只有deploy阶段上传-->
                     <pushImage>true</pushImage>
