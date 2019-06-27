@@ -30,15 +30,15 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.0.0</version>
-              <!--  <executions>
+               <executions>
                     <execution>
                         <id>build-image</id>
-                        <phase>package</phase>
-                        <goals>
+                        <phase>install</phase>
+                       <goals>
                             <goal>build</goal>
                         </goals>
                     </execution>
-                </executions>-->
+                </executions>
             <!--    <configuration>
                    <imageName>${project.parent.artifactId}/${project.artifactId}</imageName>
                     <dockerDirectory>${project.basedir}</dockerDirectory>
