@@ -24,13 +24,13 @@
         </dependency>
     </dependencies>
 
- <build>
+ <!--<build>
         <plugins>
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.0.0</version>
-              <!--  <executions>
+              &lt;!&ndash;  <executions>
                     <execution>
                         <id>build-image</id>
                         <phase>package</phase>
@@ -38,8 +38,8 @@
                             <goal>build</goal>
                         </goals>
                     </execution>
-                </executions>-->
-            <!--    <configuration>
+                </executions>&ndash;&gt;
+            &lt;!&ndash;    <configuration>
                    <imageName>${project.parent.artifactId}/${project.artifactId}</imageName>
                     <dockerDirectory>${project.basedir}</dockerDirectory>
                     <resources>
@@ -49,10 +49,45 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
-                </configuration>-->
+                </configuration>&ndash;&gt;
+            </plugin>
+        </plugins>
+    </build>-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <executions>
+                    <!--设置在执行maven 的install时构建镜像-->
+                    <execution>
+                        <id>build-image</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!--安装了docker的主机，并且打开了api remote接口设置-->
+                    <dockerHost>http://172.21.0.7:2375</dockerHost>
+                    <pushImage>true</pushImage><!--设置上传镜像到私有仓库，需要docker设置指定私有仓库地址-->
+                    <!--镜像名称-->
+                    <imageName>${docker.repository}/${docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
+                    <!--镜像的基础版本-->
+                    <baseImage>java:openjdk-8-jdk-alpine</baseImage>
+                    <!--镜像启动参数-->
+                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
             </plugin>
         </plugins>
     </build>
 
- 
 </project>
