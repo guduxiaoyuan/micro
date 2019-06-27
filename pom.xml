@@ -75,7 +75,7 @@
     </modules>
 
 
-    <build>
+   <!-- <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -88,17 +88,17 @@
                      
                 <configuration>
                     <dockerHost>http://172.21.0.7:2375</dockerHost>
-                  <!--  <serverId>dockerdd</serverId> -->
+                  &lt;!&ndash;  <serverId>dockerdd</serverId> &ndash;&gt;
                <registryUrl>${docker.repository}</registryUrl> 
-                    <!-- <forceTags>true</forceTags> -->
-                    <!--install阶段也上传，否则只有deploy阶段上传-->
+                    &lt;!&ndash; <forceTags>true</forceTags> &ndash;&gt;
+                    &lt;!&ndash;install阶段也上传，否则只有deploy阶段上传&ndash;&gt;
                     <pushImage>true</pushImage>
                     <dockerDirectory>${basedir}/src/main/docker</dockerDirectory>
                     <imageName>
                         ${docker.repository}/${docker.image.prefix}/${project.artifactId}:${tag}
                     </imageName>
                     <imageTags>
-                        <!--docker的tag为项目版本号、latest-->
+                        &lt;!&ndash;docker的tag为项目版本号、latest&ndash;&gt;
                         <imageTag>latest</imageTag>
                     </imageTags>
                     <resources>
@@ -122,8 +122,25 @@
                 </configuration>
             </plugin>
         </plugins>
+    </build>-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <!--添加利用maven插件构建docker镜像的插件依赖-->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>0.4.13</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
-
 
    <repositories>
         <repository>
