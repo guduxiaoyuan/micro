@@ -25,7 +25,7 @@
         <spring-cloud.version>Finchley.RC1</spring-cloud.version>
         <docker.image.prefix>micro-service</docker.image.prefix>
         <docker.repository>62.234.138.47:5000</docker.repository>
-<!--        <dockerHost>http://47.96.103.19:2375</dockerHost>-->
+        <dockerHost>http://172.21.0.7:2375</dockerHost>
         <skipTests>true</skipTests>
         <tag>latest</tag>
     </properties>
@@ -84,20 +84,17 @@
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>1.1.1</version>
-                     
+                <version>1.1.1</version>   
                 <configuration>
-                    <dockerHost>http://172.21.0.7:2375</dockerHost>
-               <registryUrl>${docker.repository}</registryUrl> 
-                    <forceTags>true</forceTags> 
-                    
+                   <dockerHost>http://172.21.0.7:2375</dockerHost>
+                   <registryUrl>${docker.repository}</registryUrl> 
+                  <!--  <forceTags>true</forceTags> -->
                     <pushImage>true</pushImage>
                     <dockerDirectory>${basedir}/src/main/docker</dockerDirectory>
                     <imageName>
                         ${docker.repository}/${docker.image.prefix}/${project.artifactId}
                     </imageName>
                     <imageTags>
-                       
                         <imageTag>latest</imageTag>
                     </imageTags>
                     <resources>
