@@ -28,7 +28,7 @@
 <!--        <dockerHost>http://47.96.103.19:2375</dockerHost>-->
         <dockerHost>http://62.234.138.47:2375</dockerHost>
         <skipTests>true</skipTests>
-        <tag>root</tag>
+        <tag>latest</tag>
     </properties>
 
     <dependencies>
