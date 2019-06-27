@@ -53,53 +53,7 @@
             </plugin>
         </plugins>
     </build>-->
-     <!--      <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.1.1</version>
-                <configuration>
-                    <registryUrl>${docker.repository}</registryUrl>
-                    <!-- <forceTags>true</forceTags> -->
-                    <!--install阶段也上传，否则只有deploy阶段上传-->
-               <pushImage>true</pushImage>
-                    <dockerDirectory>${basedir}/src/main/docker</dockerDirectory>
-                    <imageName>
-                        ${docker.repository}/${docker.image.prefix}/${project.artifactId}:${tag}
-                    </imageName>
-                    <imageTags>
-                        <!--docker的tag为项目版本号、latest-->
-                        <imageTag>latest</imageTag>
-                    </imageTags>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                    <buildArgs>
-                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
-                    </buildArgs>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build> -->
-
-
+    
     <build>
         <plugins>
             <plugin>
