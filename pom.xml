@@ -23,7 +23,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.RC1</spring-cloud.version>
-        <docker.image.prefix>ttt</docker.image.prefix>
+        <docker.image.prefix>micro-service</docker.image.prefix>
         <docker.repository>http://62.234.138.47:5000</docker.repository>
 <!--        <dockerHost>http://47.96.103.19:2375</dockerHost>-->
         <skipTests>true</skipTests>
