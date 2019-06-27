@@ -87,7 +87,7 @@
                 <version>1.1.1</version>
                      
                 <configuration>
-                    <dockerHost>http://172.21.0.7:2375</dockerHost>
+                    <dockerHost>http://62.234.138.47:2375</dockerHost>
                   <!--  <serverId>dockerdd</serverId> -->
                <registryUrl>${docker.repository}</registryUrl> 
                     <!-- <forceTags>true</forceTags> -->
