@@ -68,7 +68,7 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
+             <!--   <configuration>
                     <!--安装了docker的主机，并且打开了api remote接口设置-->
                     <dockerHost>http://172.21.0.7:2375</dockerHost>
                     <pushImage>true</pushImage><!--设置上传镜像到私有仓库，需要docker设置指定私有仓库地址-->
@@ -85,7 +85,7 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
-                </configuration>
+                </configuration>  -->
             </plugin>
         </plugins>
     </build>
