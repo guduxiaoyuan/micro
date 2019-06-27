@@ -39,8 +39,8 @@
                         </goals>
                     </execution>
                 </executions>
-            <!--    <configuration>
-                   <imageName>${project.parent.artifactId}/${project.artifactId}</imageName>
+                <configuration>
+                   <imageName> ${docker.repository}/${project.artifactId}</imageName>
                     <dockerDirectory>${project.basedir}</dockerDirectory>
                     <resources>
                         <resource>
@@ -49,7 +49,7 @@
                             <include>${project.build.finalName}.jar</include>
                         </resource>
                     </resources>
-                </configuration>-->
+                </configuration>
             </plugin>
         </plugins>
     </build>
