@@ -26,7 +26,6 @@
         <docker.image.prefix>ttt</docker.image.prefix>
         <docker.repository>http://62.234.138.47:5000</docker.repository>
 <!--        <dockerHost>http://47.96.103.19:2375</dockerHost>-->
-        <dockerHost>http://62.234.138.47:2375</dockerHost>
         <skipTests>true</skipTests>
         <tag>latest</tag>
     </properties>
@@ -88,6 +87,7 @@
                 <version>1.1.1</version>
                      
                 <configuration>
+                    <dockerHost>http://172.21.0.7:2375</dockerHost>
                     <serverId>dockerdd</serverId>
                     <registryUrl>${docker.repository}</registryUrl>
                     <!-- <forceTags>true</forceTags> -->
