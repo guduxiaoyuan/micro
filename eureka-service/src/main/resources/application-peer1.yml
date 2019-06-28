@@ -5,7 +5,7 @@ server:
   port: 8761
 eureka:
   instance:
-    hostname: peer1        #Eureka实例的主机名
+    hostname: eureka1        #Eureka实例的主机名
     prefer-ip-address: false
 #    instance-id: peer1
   client:
