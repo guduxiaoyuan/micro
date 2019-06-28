@@ -27,7 +27,8 @@
         <docker.repository>62.234.138.47:5000</docker.repository>
         <dockerHost>http://172.21.0.7:2375</dockerHost>
         <skipTests>true</skipTests>
-        <tag>latest</tag>
+       <!-- <tag>latest</tag>-->
+        <tag>v0.1</tag> 
     </properties>
 
     <dependencies>
