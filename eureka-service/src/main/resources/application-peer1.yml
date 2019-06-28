@@ -10,6 +10,7 @@ eureka:
 #    instance-id: peer1
   client:
     serviceUrl:
-      defaultZone: http://peer2:8762/eureka/,http://peer3:8763/eureka/  #Eureka节点相互注册
+     # defaultZone: http://peer2:8762/eureka/,http://peer3:8763/eureka/  #Eureka节点相互注册
+      defaultZone: ${ADDITIONAL_EUREKA_SERVER_LIST}
       register-with-eureka: true
       fetch-registry: true
