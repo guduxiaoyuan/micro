@@ -92,7 +92,7 @@
                     <forceTags>true</forceTags>
                     <pushImage>true</pushImage>
                         <!-- ${basedir}/-->
-                    <dockerDirectory>${basedir}/src/main/docker</dockerDirectory>
+                    <dockerDirectory>${basedir}</dockerDirectory>
                     <imageName>
                         ${docker.repository}/${docker.image.prefix}/${project.artifactId}
                     </imageName>
