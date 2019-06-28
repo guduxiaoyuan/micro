@@ -1,16 +1,15 @@
 spring:
   application:
-    name: EUREKA-HA
+    name: EUREKA-SERVER
 server:
   port: 8762
 eureka:
   instance:
     hostname: eureka2        #Eureka实例的主机名
     prefer-ip-address: false
-#    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+    instance-id: eureka2
   client:
     serviceUrl:
-      #defaultZone: http://peer1:8761/eureka/,http://peer3:8763/eureka/  #Eureka节点相互注册
       defaultZone: ${ADDITIONAL_EUREKA_SERVER_LIST}
       register-with-eureka: true
       fetch-registry: true
