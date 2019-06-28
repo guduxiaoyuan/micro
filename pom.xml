@@ -91,7 +91,8 @@
                    <registryUrl>${docker.repository}</registryUrl> 
                     <forceTags>true</forceTags>
                     <pushImage>true</pushImage>
-                    <dockerDirectory>${basedir}/src/main/docker</dockerDirectory>
+                        <!-- ${basedir}/-->
+                    <dockerDirectory>src/main/docker</dockerDirectory>
                     <imageName>
                         ${docker.repository}/${docker.image.prefix}/${project.artifactId}
                     </imageName>
