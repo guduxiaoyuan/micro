@@ -88,7 +88,7 @@
                 <configuration>
                    <dockerHost>http://172.21.0.7:2375</dockerHost>
                    <registryUrl>${docker.repository}</registryUrl> 
-                  <!--  <forceTags>true</forceTags> -->
+                    <forceTags>true</forceTags>
                     <pushImage>true</pushImage>
                     <dockerDirectory>${basedir}/src/main/docker</dockerDirectory>
                     <imageName>
