@@ -12,7 +12,7 @@ import java.util.Optional;
  */
 @Component
 public class Consumer {
-    @KafkaListener(topics = {"test"})
+    @KafkaListener(topics = {"test"},groupId = "xiaofeng1")
     public void listen(ConsumerRecord<?, ?> record){
 
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
@@ -20,8 +20,7 @@ public class Consumer {
         if (kafkaMessage.isPresent()) {
             Object message = kafkaMessage.get();
 //            System.out.println("---->"+record);
-            System.out.println("---->"+message);
-
+            System.out.println("消费者1---->"+message);
         }
 
     }

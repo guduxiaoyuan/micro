@@ -18,6 +18,7 @@ public class CatController {
     public String hello(@PathVariable String name) {
 
         log.info("真几拉力赛地方");
+        log.debug("你你你gggg");
         return "hello, " + name;
     }
 }
