@@ -1,0 +1,3 @@
+dubbo=com.dog.dubbo.DubboAdaptiveExt2
+cloud=com.dog.dubbo.SpringCloudAdaptiveExt2
+thrift=com.dog.dubbo.ThriftAdaptiveExt2
