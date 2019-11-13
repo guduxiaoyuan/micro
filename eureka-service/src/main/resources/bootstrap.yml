@@ -32,3 +32,30 @@ eureka:
 #  server:
 #    peer-eureka-nodes-update-interval-ms: 60000
 #    renewal-percent-threshold: 0.49
+kafka:
+    consumer:
+        auto:
+            commit:
+                interval: 100
+            offset:
+                reset: latest
+        concurrency: 10
+        enable:
+            auto:
+                commit: true
+        group:
+            id: test
+        servers: 10.93.21.21:9092
+        session:
+            timeout: 6000
+        topic: test
+        zookeeper:
+            connect: 10.93.21.21:2181
+    producer:
+        batch:
+            size: 4096
+        buffer:
+            memory: 40960
+        linger: 1
+        retries: 0
+        servers: 10.93.21.21:9092

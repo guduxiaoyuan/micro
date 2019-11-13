@@ -1,21 +1,15 @@
-spring:
-  application:
-    name: dog-service
-server:
-  port: 8082
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8000/eureka/
-
-#---
 #spring:
 #  application:
 #    name: dog-service
-#  profiles: docker
 #server:
 #  port: 8082
 #eureka:
 #  client:
 #    service-url:
-#      defaultZone: http://eureka-service:8000/eureka/
+#      defaultZone: http://localhost:8000/eureka/
+spring:
+    data:
+        solr:
+            zk-host: 192.168.12.131:2181,192.168.12.132:2181,192.168.12.133:2181
+            repositories:
+                enabled: true

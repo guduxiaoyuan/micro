@@ -18,11 +18,38 @@
     </parent>
 
     <dependencies>
+    
+      <dependency>
+   <groupId>com.charlee</groupId>
+  <artifactId>cat-service</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    
+    
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
+         <dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.16</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>druid</artifactId>
+    <version>1.1.12</version>
+</dependency>
+<dependency>
+   <groupId>com.alibaba</groupId>
+   <artifactId>druid-spring-boot-starter</artifactId>
+   <version>1.1.10</version>
+</dependency>
+      <!--   <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
@@ -33,9 +60,59 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency> -->
+   
+        <dependency>
+            <groupId>org.apache.solr</groupId>
+            <artifactId>solr-solrj</artifactId>
+            <version>4.10.2</version>
         </dependency>
-    </dependencies>
+         <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging-api</artifactId>
+            <version>1.1</version>
+  
+        </dependency>
+       <dependency>
+    <groupId>org.elasticsearch.client</groupId>
+    <artifactId>elasticsearch-rest-high-level-client</artifactId>
+           <version>7.3.0</version>
+</dependency>
+        <!-- https://mvnrepository.com/artifact/org.elasticsearch.client/elasticsearch-rest-client -->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-client</artifactId>
+            <version>7.3.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.elasticsearch.plugin/parent-join-client -->
+        <dependency>
+            <groupId>org.elasticsearch.plugin</groupId>
+            <artifactId>parent-join-client</artifactId>
+            <version>7.3.1</version>
+        </dependency>
 
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>7.3.1</version>
+        </dependency>
+
+        
+           <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+   </dependency>
+   
+   
+   <dependency>
+   <groupId>com.alibaba</groupId>
+   <artifactId>dubbo</artifactId>
+   <version>2.5.3</version>
+</dependency>
+   
+    </dependencies>
+<!-- 
     <build>
         <plugins>
             <plugin>
@@ -64,6 +141,6 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>
+    </build> -->
 
 </project>
