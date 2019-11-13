@@ -1,29 +1,3 @@
-#version: "3"
-#services:
-#  eureka-service:
-#    image: micro-service/eureka-service
-#    ports:
-#      - 8000:8000
-#    hostname: eureka-service
-#  cat-service:
-#    image: micro-service/cat-service
-#    ports:
-#      - 8081:8081
-#    hostname: cat-service
-#    links:
-#      - eureka-service
-#    depends_on:
-#      - eureka-service
-#  dog-service:
-#    image: micro-service/dog-service
-#    ports:
-#      - 8082:8082
-#    hostname: dog-service
-#    links:
-#      - eureka-service
-#      - cat-service
-#    depends_on:
-#      - eureka-service
 version: "3"
 services:
   peer1:      # 默认情况下，其他服务可以使用服务名称连接到该服务。因此，对于eurekaService1的节点，它需要连接http://eurekaService2/3:951X/eureka/，因此需要配置该服务的名称是eurekaService1。
@@ -71,6 +45,20 @@ services:
       - "8763:8763"
     environment:
       - spring.profiles.active=peer3
+  dog-service:
+    image: micro-service/dog-service
+    deploy:
+      mode: replicated
+      replicas: 2
+    hostname: dog-service
+    ports:
+       - 8082:8082
+    depends_on:
+      - eureka-service
+    environment:
+      - TZ=Asia/Shanghai
+    networks:
+      - eureka-net
+
 networks:
   eureka-net:            #网络名称
-    driver: overlay
