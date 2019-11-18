@@ -39,7 +39,6 @@ public class ThreadLocalTest {
             }
             System.out.println("线程名称" + Thread.currentThread().getName() + ";value:" + threadLocal.get());
 
-
             threadLocal.remove();
         }
     }
