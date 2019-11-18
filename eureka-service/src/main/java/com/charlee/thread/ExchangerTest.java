@@ -18,7 +18,7 @@ public class ExchangerTest {
 
         @Override
         public void run() {
-            for (int i = 1; i < 5; i++) {
+            for (int i = 1; i < 2; i++) {
                 try {
                     TimeUnit.SECONDS.sleep(1);
                     data = i;
@@ -44,11 +44,12 @@ public class ExchangerTest {
         @Override
         public void run() {
             while (true) {
-                data = 0;
+//                data = 0;
                 System.out.println(getName() + " 交换前:" + data);
                 try {
                     TimeUnit.SECONDS.sleep(1);
                     data = exchanger.exchange(data);
+                    System.out.println(123);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -62,7 +63,7 @@ public class ExchangerTest {
         new Producer("", exchanger).start();
         new Consumer("", exchanger).start();
         TimeUnit.SECONDS.sleep(7);
-        System.exit(-1);
+
 
 
     }
