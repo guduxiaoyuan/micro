@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class SemaphoreDemo {
-    private static final Semaphore semaphore = new Semaphore(3);
+    private static final Semaphore semaphore = new Semaphore(1);
     private static final ThreadPoolExecutor threadPool = new ThreadPoolExecutor(5, 10, 60, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>());
 
     private static class InformationThread extends Thread {

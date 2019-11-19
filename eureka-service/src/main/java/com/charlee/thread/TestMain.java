@@ -26,6 +26,11 @@ public class TestMain {
         }).get();
         System.out.println(s);
 
+
+        ForkJoinPool pool = new ForkJoinPool();
+
+
+
     }
    static  ReentrantReadWriteLockUtil util = new ReentrantReadWriteLockUtil();
 

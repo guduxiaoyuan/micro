@@ -42,7 +42,6 @@ public class SynchronousQueueTest {
                 while(true){
                     try {
                         String result = s.take();
-                        System.out.println(result);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -54,7 +53,6 @@ public class SynchronousQueueTest {
         t1.start();
 
 
-        System.out.println("已经结束了");
         System.in.read();
 
     }

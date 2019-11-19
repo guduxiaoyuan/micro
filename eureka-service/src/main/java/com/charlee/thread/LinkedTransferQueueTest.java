@@ -15,7 +15,7 @@ public class LinkedTransferQueueTest {
 
 
         Thread2 t2 = new Thread2();
-        t2.start();
+//        t2.start();
 
         System.out.println("执行完毕");
 
@@ -25,11 +25,11 @@ public class LinkedTransferQueueTest {
         @Override
         public void run() {
             try {
-                System.out.println("是否阻塞了");
-                 queue.transfer("12");
+                System.out.println("是否阻塞了 start");
+                 queue.tryTransfer("12");
 //                Thread.sleep(3000);
 //                 queue.tryTransfer("123111");
-                System.out.println("是否阻塞了");
+                System.out.println("是否阻塞了end");
             } catch (Exception e) {
                 e.printStackTrace();
             }
