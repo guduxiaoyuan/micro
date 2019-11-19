@@ -1,14 +1,15 @@
 package com.charlee.thread.HandwritingThreadPool;
 
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 public class ThreadPoolTest {
 
     public static void main(String[] args) {
         //初始化线程数:2, 最大线程数:6, 核心线程数:4, 任务队列大小:1000
-        final BasicThreadPool threadPool = new BasicThreadPool(2, 6, 4, 1000);
+        final BasicThreadPool threadPool = new BasicThreadPool(0, 10, 5, 1000);
         //创建20个任务提交进行执行
-        for (int i = 0; i < 1; ++i) {
+        for (int i = 0; i < 10; ++i) {
             threadPool.execute(new Runnable() {
                 @Override
                 public void run() {
@@ -41,6 +42,8 @@ public class ThreadPoolTest {
         System.out.println("shutdown");
         //测试线程池shutdown功能
         threadPool.shutdown();
+
+
     }
 
 }
