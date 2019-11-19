@@ -6,7 +6,37 @@ import java.util.TreeMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+/**
+ * 读写锁
+ */
 public class ReentrantReadWriteLockUtil {
+
+    public static void main(String[] args) throws Exception {
+        Thread t1 = new Thread(new Thread1());
+        Thread t2 = new Thread(new Thread2());
+        t1.start();
+        t2.start();
+
+
+    }
+    static  ReentrantReadWriteLockUtil util = new ReentrantReadWriteLockUtil();
+
+    public static class Thread1 implements  Runnable{
+
+        @Override
+        public void run() {
+            util.processCachedData();
+        }
+    }
+
+    public static class Thread2 implements  Runnable{
+        @Override
+        public void run() {
+            util.processCachedData();
+        }
+    }
+
+
 
     Object data;
     volatile boolean cacheValid;
@@ -25,6 +55,7 @@ public class ReentrantReadWriteLockUtil {
 //                    data = ...
                     System.out.println("写数据中……………………………………………………" + Thread.currentThread().getName());
                     Thread.sleep(5000);
+                    System.out.println("写数据完成……………………………………………………" + Thread.currentThread().getName());
                     cacheValid = true;
                 }
                 // Downgrade by acquiring read lock before releasing write lock
